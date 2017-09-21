@@ -11,10 +11,14 @@ setup(
     name='django-auth-adfs',
     version=__version__,
     packages=find_packages(),
+    package_data={
+        'templates': ['templates/*.*']
+    },
+    include_package_data=True,
     author='Joris Beckers',
     author_email='joris.beckers@gmail.com',
-    url="https://github.com/jobec/django-auth-adfs",
-    download_url="https://pypi.python.org/pypi/django-auth-adfs",
+    url="https://github.com/jobec/django-auth_adfs",
+    download_url="https://pypi.python.org/pypi/django-auth_adfs",
     description='A Django authentication backend for Microsoft ADFS',
     long_description=readme + '\n\n' + changelog,
     license="BSD",

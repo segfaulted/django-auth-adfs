@@ -1,7 +1,7 @@
 from django.conf import settings as django_settings
 from django.contrib.auth import authenticate, login
 from django.http.response import HttpResponse
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from django.views.generic import View
 
 from .config import settings
@@ -32,7 +32,7 @@ class OAuth2View(View):
                     return redirect(django_settings.LOGIN_REDIRECT_URL)
             else:
                 # Return a 'disabled account' error message
-                return HttpResponse("Account disabled", status=403)
+                return render(request, "auth_adfs/disabled.html", status=403)
         else:
             # Return an 'invalid login' error message
-            return HttpResponse("Login failed", status=401)
+            return render(request, "auth_adfs/login_failed.html", status=401)
